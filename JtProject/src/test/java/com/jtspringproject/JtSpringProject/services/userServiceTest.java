@@ -1,4 +1,4 @@
-package com.jtspringproject.JtSpringProject;
+package com.jtspringproject.JtSpringProject.services;
 
 import com.jtspringproject.JtSpringProject.dao.userDao;
 import com.jtspringproject.JtSpringProject.models.User;

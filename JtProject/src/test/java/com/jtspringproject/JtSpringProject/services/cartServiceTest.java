@@ -1,42 +1,77 @@
-/**
- * 
- */
 package com.jtspringproject.JtSpringProject.services;
 
-import static java.time.Duration.ofMillis;
-import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import static org.mockito.Mockito.mock;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import com.jtspringproject.JtSpringProject.models.Cart;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-/**
- * Parasoft Jtest UTA: Test class for cartService
- *
- * @see com.jtspringproject.JtSpringProject.services.cartService
- * @author Luciano
- */
+import com.jtspringproject.JtSpringProject.dao.cartDao;
+import com.jtspringproject.JtSpringProject.models.Cart;
+import com.jtspringproject.JtSpringProject.services.cartService;
+
+@ExtendWith(MockitoExtension.class)
 public class cartServiceTest {
+	
+    @Mock
+    private cartDao cartDao;
 
-	/**
-	 * Parasoft Jtest UTA: Test for addCart(Cart)
-	 *
-	 * @see com.jtspringproject.JtSpringProject.services.cartService#addCart(Cart)
-	 * @author Luciano
-	 */
-	@Test
-	public void testAddCart() throws Throwable {
-		// UTA is unable to resolve the values required to create the requested test case.
-		// A test case with default values has been created instead.
+    @InjectMocks
+    private cartService cartService;
 
-		assertTimeoutPreemptively(ofMillis(5000), () -> {
-			// Given
-			cartService underTest = new cartService();
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+    
+    @Test
+    void addCart() {
+        Cart cart = new Cart();
+        when(cartDao.addCart(cart)).thenReturn(cart);
 
-			// When
-			Cart cart = mock(Cart.class);
-			Cart result = underTest.addCart(cart);
+        Cart result = cartService.addCart(cart);
 
-		});
-	}
+        assertEquals(cart, result);
+        verify(cartDao, times(1)).addCart(cart);
+    }
+    
+    @Test
+    void getCarts() {
+        List<Cart> carts = Arrays.asList(new Cart(), new Cart());
+        when(cartDao.getCarts()).thenReturn(carts);
+
+        List<Cart> result = cartService.getCarts();
+
+        assertEquals(carts, result);
+        verify(cartDao, times(1)).getCarts();
+    }
+
+    @Test
+    void updateCart() {
+        Cart cart = new Cart();
+
+        cartService.updateCart(cart);
+
+        verify(cartDao, times(1)).updateCart(cart);
+    }
+    
+    @Test
+    void deleteCart() {
+        Cart cart = new Cart();
+
+        cartService.deleteCart(cart);
+
+        verify(cartDao, times(1)).deleteCart(cart);
+    }
+	
 }

@@ -1,4 +1,4 @@
-package com.jtspringproject.JtSpringProject;
+package com.jtspringproject.JtSpringProject.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
