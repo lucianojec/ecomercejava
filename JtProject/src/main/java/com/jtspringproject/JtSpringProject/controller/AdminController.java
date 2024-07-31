@@ -45,8 +45,6 @@ public class AdminController {
 		return "userLogin";
 	}
 	
-	
-	
 	@GetMapping("/index")
 	public String index(Model model) {
 		if("".equalsIgnoreCase(usernameforclass))
@@ -57,7 +55,6 @@ public class AdminController {
 		}
 			
 	}
-	
 	
 	@GetMapping("login")
 	public String adminlogin() {
