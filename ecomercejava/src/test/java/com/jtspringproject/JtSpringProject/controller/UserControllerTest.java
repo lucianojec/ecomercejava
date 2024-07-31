@@ -102,20 +102,20 @@ public class UserControllerTest {
 	 * @see com.jtspringproject.JtSpringProject.controller.UserController#getproduct()
 	 * @author Luciano
 	 */
-//	@Test
-//	public void testGetproduct() throws Throwable {
-//		// UTA is unable to resolve the values required to create the requested test case.
-//		// A test case with default values has been created instead.
-//
-//		assertTimeoutPreemptively(ofMillis(5000), () -> {
-//			// Given
-//			UserController underTest = new UserController();
-//
-//			// When
-//			ModelAndView result = underTest.getproduct();
-//
-//		});
-//	}
+	@Test
+	public void testGetproduct() throws Throwable {
+		// UTA is unable to resolve the values required to create the requested test case.
+		// A test case with default values has been created instead.
+
+		assertTimeoutPreemptively(ofMillis(5000), () -> {
+			// Given
+			UserController underTest = new UserController();
+
+			// When
+			ModelAndView result = underTest.getproduct();
+
+		});
+	}
 
 	/**
 	 * Parasoft Jtest UTA: Test for registerUser()
@@ -172,22 +172,22 @@ public class UserControllerTest {
 	 * @see com.jtspringproject.JtSpringProject.controller.UserController#userlogin(String, String, Model, HttpServletResponse)
 	 * @author Luciano
 	 */
-//	@Test
-//	public void testUserlogin2() throws Throwable {
-//		// UTA is unable to resolve the values required to create the requested test case.
-//		// A test case with default values has been created instead.
-//
-//		assertTimeoutPreemptively(ofMillis(5000), () -> {
-//			// Given
-//			UserController underTest = new UserController();
-//
-//			// When
-//			String username = "username"; // UTA: default value
-//			String pass = "pass"; // UTA: default value
-//			Model model = mock(Model.class);
-//			HttpServletResponse res = mock(HttpServletResponse.class);
-//			ModelAndView result = underTest.userlogin(username, pass, model, res);
-//
-//		});
-//	}
+	@Test
+	public void testUserlogin2() throws Throwable {
+		// UTA is unable to resolve the values required to create the requested test case.
+		// A test case with default values has been created instead.
+
+		assertTimeoutPreemptively(ofMillis(5000), () -> {
+			// Given
+			UserController underTest = new UserController();
+
+			// When
+			String username = "username"; // UTA: default value
+			String pass = "pass"; // UTA: default value
+			Model model = mock(Model.class);
+			HttpServletResponse res = mock(HttpServletResponse.class);
+			ModelAndView result = underTest.userlogin(username, pass, model, res);
+
+		});
+	}
 }
